@@ -1,5 +1,5 @@
 import { styled } from '@minstack/styled';
-import { type ReactNode, useLayoutEffect, useRef } from 'react';
+import { type ReactNode, useEffect, useRef } from 'react';
 
 import { useParallax } from '../../hooks/use-parallax.js';
 
@@ -25,7 +25,7 @@ const ParallaxLayerBase = ({
   const ref = useRef<HTMLDivElement | null>(null);
   const parallax = useParallax();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (xScale === '0' && yScale === '0') return;
 
     return parallax?.subscribe((x, y) => {

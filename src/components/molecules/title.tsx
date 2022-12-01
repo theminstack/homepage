@@ -1,8 +1,13 @@
 import { styled } from '@minstack/styled';
+import { type ReactNode } from 'react';
 
 import { ParallaxFocus } from '../atoms/parallax-focus.js';
 import { ParallaxLayer } from '../atoms/parallax-layer.js';
 import { ParallaxRoot } from '../atoms/parallax-root.js';
+
+type Props = {
+  children?: ReactNode;
+};
 
 const TitleParallax = styled(ParallaxRoot)`
   font-weight: bold;
@@ -32,20 +37,21 @@ const TitleFocus = styled(ParallaxFocus)`
   background-size: 100% calc(100% - 2px);
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-background-clip: text;
   background-clip: text;
   overflow: hidden;
 `;
 
-const Title = () => {
+const Title = ({ children }: Props) => {
   return (
     <TitleParallax>
       <ParallaxLayer yScale="-8rem" yOffset="-3rem" xOffset="-1rem">
-        ≡ MinStack
+        {children}
       </ParallaxLayer>
       <ParallaxLayer yScale="-4rem" yOffset="-1.5rem" xOffset="-0.5rem">
-        ≡ MinStack
+        {children}
       </ParallaxLayer>
-      <TitleFocus>≡ MinStack</TitleFocus>
+      <TitleFocus>{children}</TitleFocus>
     </TitleParallax>
   );
 };

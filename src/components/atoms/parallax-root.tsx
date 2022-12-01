@@ -1,5 +1,5 @@
 import { styled } from '@minstack/styled';
-import { type ReactNode, useLayoutEffect, useMemo, useRef } from 'react';
+import { type ReactNode, useEffect, useMemo, useRef } from 'react';
 
 import { createParallax, ParallaxContext } from '../../contexts/parallax.js';
 
@@ -12,30 +12,29 @@ const ParallaxRootBase = ({ className, children }: Props): JSX.Element => {
   const ref = useRef<HTMLDivElement | null>(null);
   const parallax = useMemo(() => createParallax(), []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let af: number | undefined;
 
     const update = () => {
-      if (!ref.current) return;
-      const { left, right, top, bottom } = ref.current.getBoundingClientRect();
-      const x = ((left + right) * 0.5) / window.innerWidth - 0.5;
-      const y = ((top + bottom) * 0.5) / window.innerHeight - 0.5;
-      parallax.next(x, y);
-    };
-
-    const onScroll = () => {
       if (af != null) return;
 
       af = requestAnimationFrame(() => {
         af = undefined;
-        update();
+        if (!ref.current) return;
+        const { left, right, top, bottom } = ref.current.getBoundingClientRect();
+        const x = ((left + right) * 0.5) / window.innerWidth - 0.5;
+        const y = ((top + bottom) * 0.5) / window.innerHeight - 0.5;
+        parallax.next(x, y);
       });
     };
 
     update();
-    window.addEventListener('scroll', onScroll, { capture: true });
+    window.addEventListener('scroll', update, { capture: true });
 
-    return () => window.removeEventListener('scroll', onScroll, { capture: false });
+    return () => {
+      if (af != null) cancelAnimationFrame(af);
+      window.removeEventListener('scroll', update, { capture: false });
+    };
   }, [parallax]);
 
   return (

@@ -21,7 +21,7 @@ createRoot(document.body.appendChild(document.createElement('div'))).render(
     <GlobalStyle />
     <div style={{ height: '200vh' }}>
       <Hero>
-        <Title />
+        <Title>≡ MinStack</Title>
         <SubTitle>High-quality, minimalist, open-source tools for web developers.</SubTitle>
       </Hero>
     </div>
