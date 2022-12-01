@@ -5,7 +5,7 @@ type Props = {
   readonly children?: ReactNode;
 };
 
-const ShadeOverlay = styled.div`
+const Shade = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -22,21 +22,27 @@ const ShadeOverlay = styled.div`
     right: 0;
     height: 20vh;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(16, 20, 32, 0.99) 0%, rgba(16, 20, 32, 0) 100%);
+    background: linear-gradient(180deg, hsla(225, 33%, 10%, 1) 0%, hsla(225, 33%, 10%, 0) 100%);
   }
 `;
 
-const ShadeRoot = styled.div`
+const HeroRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  padding-top: 20vh;
+  padding-bottom: 10vh;
 `;
 
-const Shade = ({ children }: Props): JSX.Element => {
+const Hero = ({ children }: Props): JSX.Element => {
   return (
-    <ShadeRoot>
-      <ShadeOverlay />
+    <HeroRoot>
+      <Shade />
       {children}
-    </ShadeRoot>
+    </HeroRoot>
   );
 };
 
-export { Shade };
+export { Hero };

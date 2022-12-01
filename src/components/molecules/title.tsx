@@ -4,16 +4,15 @@ import { ParallaxFocus } from '../atoms/parallax-focus.js';
 import { ParallaxLayer } from '../atoms/parallax-layer.js';
 import { ParallaxRoot } from '../atoms/parallax-root.js';
 
-const TitleRoot = styled(ParallaxRoot)`
-  margin-top: 20vh;
+const TitleParallax = styled(ParallaxRoot)`
   font-weight: bold;
 
   ${ParallaxLayer}:nth-child(1) {
-    color: #123;
+    color: hsl(210, 50%, 15%);
   }
 
   ${ParallaxLayer}:nth-child(2) {
-    color: #246;
+    color: hsl(210, 50%, 30%);
   }
 
   &,
@@ -27,14 +26,19 @@ const TitleRoot = styled(ParallaxRoot)`
 `;
 
 const TitleFocus = styled(ParallaxFocus)`
+  color: hsl(210, 100%, 75%);
   color: transparent;
-  background: linear-gradient(0deg, rgba(238, 238, 238, 1) 10%, rgba(131, 194, 255, 1) 70%);
+  background-image: linear-gradient(0deg, hsl(0, 0%, 90%) 10%, hsl(210, 100%, 75%) 70%);
+  background-size: 100% calc(100% - 2px);
+  background-position: center;
+  background-repeat: no-repeat;
   background-clip: text;
+  overflow: hidden;
 `;
 
 const Title = () => {
   return (
-    <TitleRoot>
+    <TitleParallax>
       <ParallaxLayer yScale="-8rem" yOffset="-3rem" xOffset="-1rem">
         ≡ MinStack
       </ParallaxLayer>
@@ -42,7 +46,7 @@ const Title = () => {
         ≡ MinStack
       </ParallaxLayer>
       <TitleFocus>≡ MinStack</TitleFocus>
-    </TitleRoot>
+    </TitleParallax>
   );
 };
 
