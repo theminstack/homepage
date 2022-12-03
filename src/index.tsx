@@ -4,26 +4,32 @@ import { styled } from '@minstack/styled';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { Hero } from './components/atoms/hero.js';
-import { SubTitle } from './components/atoms/sub-title.js';
-import { Title } from './components/molecules/title.js';
+import { Home } from './components/pages/home.js';
+import { theme } from './constants/theme.js';
 
 const GlobalStyle = styled.global`
+  line-height: 1.375;
+
   body {
-    color: hsl(0, 0%, 90%);
-    background-color: hsl(225, 33%, 10%);
+    color: ${theme.color.white};
+    background-color: ${theme.color.black};
     font-family: Arial, Helvetica, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: unset;
+    font-weight: unset;
+    margin: unset;
   }
 `;
 
 createRoot(document.body.appendChild(document.createElement('div'))).render(
   <StrictMode>
     <GlobalStyle />
-    <div style={{ height: '200vh' }}>
-      <Hero>
-        <Title>≡ MinStack</Title>
-        <SubTitle>High-quality, minimalist, open-source tools for web developers.</SubTitle>
-      </Hero>
-    </div>
+    <Home />
   </StrictMode>,
 );

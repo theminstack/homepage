@@ -36,7 +36,7 @@ const ParallaxLayerBase = ({
   }, [parallax, xScale, yScale, xOffset, yOffset]);
 
   return (
-    <div className={className} ref={ref}>
+    <div className={className} ref={ref} aria-hidden>
       {children}
     </div>
   );

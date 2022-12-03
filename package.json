@@ -24,6 +24,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@types/color": "^3.0.3",
     "@types/jest": "^29.2.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
@@ -44,8 +45,10 @@
   "dependencies": {
     "@minstack/query": "^1.0.1",
     "@minstack/styled": "^1.0.2",
+    "color": "^4.2.3",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10"
   }
 }

@@ -1,5 +1,8 @@
 import { styled } from '@minstack/styled';
+import color from 'color';
 import { type ReactNode } from 'react';
+
+import { theme } from '../../constants/theme.js';
 
 type Props = {
   readonly children?: ReactNode;
@@ -22,7 +25,7 @@ const Shade = styled.div`
     right: 0;
     height: 20vh;
     z-index: 1;
-    background: linear-gradient(180deg, hsla(225, 33%, 10%, 1) 0%, hsla(225, 33%, 10%, 0) 100%);
+    background: linear-gradient(180deg, ${theme.color.black} 0%, ${color(theme.color.black).alpha(0).toString()} 100%);
   }
 `;
 
@@ -33,7 +36,7 @@ const HeroRoot = styled.div`
   align-items: center;
   position: relative;
   padding-top: 20vh;
-  padding-bottom: 10vh;
+  padding-bottom: 8rem;
 `;
 
 const Hero = ({ children }: Props): JSX.Element => {
