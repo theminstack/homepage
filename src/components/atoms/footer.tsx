@@ -14,7 +14,7 @@ const FooterBase = ({ className, children }: Props): JSX.Element => {
 
 const Footer = styled(FooterBase)`
   flex: 0 0 auto;
-  padding: 10rem 2rem 2rem 2rem;
+  padding: 12rem 2rem 2rem;
   margin: 0 auto;
   width: 64rem;
   max-width: 100%;
