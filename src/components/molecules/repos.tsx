@@ -1,6 +1,7 @@
 import { styled } from '@minstack/styled';
-import { Clipboard, Layout, Send, Share2 } from 'react-feather';
+import { Clipboard, Compass, Layout, Send, Share2 } from 'react-feather';
 
+import { NoWrap } from '../atoms/no-wrap.js';
 import { Repo } from '../atoms/repo.js';
 
 type Props = {
@@ -14,13 +15,16 @@ const ReposBase = ({ className }: Props): JSX.Element => {
         Completely free TypeScript one-file source code snippets <em>with tests</em>.
       </Repo>
       <Repo repo="styled" title="Styled" icon={<Layout />}>
-        Small, fast, and simple CSS-in-JS for React.
+        Styled components pattern <NoWrap>CSS-in-JS</NoWrap> for React.
       </Repo>
       <Repo repo="factor" title="Factor" icon={<Share2 />}>
-        Flexible shared state management for React.
+        Shared state management for React.
       </Repo>
       <Repo repo="query" title="Query" icon={<Send />}>
-        Uncomplicated async operations for React.
+        Async operations for React.
+      </Repo>
+      <Repo repo="router" title="Router" icon={<Compass />}>
+        Single page application routing for React.
       </Repo>
     </div>
   );

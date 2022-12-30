@@ -21,7 +21,6 @@ const Footer = styled(FooterBase)`
   box-sizing: border-box;
   color: ${theme.color.dim};
   font-size: 0.825rem;
-  text-align: center;
 `;
 
 export { Footer };
