@@ -34,10 +34,11 @@ const Title = styled(TitleBase)`
     top: 0;
     left: 0;
     color: ${theme.title.color};
-    text-shadow: ${Array.from({ length: theme.title.darkenSteps })
+    text-shadow: ${Array.from({ length: theme.title.darkenSteps + 1 })
       .fill(null)
       .map((_, i) => {
-        return `${-i + -1}px ${i + 1}px 1px ${color(theme.title.color)
+        const offset = i + 0.5;
+        return `${-offset}px ${offset}px 1px ${color(theme.title.color)
           .darken(i * theme.title.darken)
           .toString()}`;
       })
