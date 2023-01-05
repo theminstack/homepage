@@ -18,6 +18,10 @@ const SubTitle = styled(SubTitleBase)`
   padding: 0 2rem;
   text-align: center;
   width: 40rem;
+
+  @media screen and (max-width: 43rem) {
+    font-size: 1.25rem;
+  }
 `;
 
 export { SubTitle };

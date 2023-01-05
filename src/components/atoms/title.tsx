@@ -24,6 +24,10 @@ const Title = styled(TitleBase)`
   font-weight: bold;
   font-size: 4rem;
 
+  @media screen and (max-width: 43rem) {
+    font-size: 3rem;
+  }
+
   & > span {
     display: block;
     padding: 0 ${theme.title.darkenSteps}px;
