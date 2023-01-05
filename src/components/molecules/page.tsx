@@ -6,8 +6,8 @@ type Props = {
   readonly className?: string;
 };
 
-const MainBase = ({ className, children }: Props): JSX.Element => {
-  const ref = useRef<HTMLElement | null>(null);
+const PageBase = ({ className, children }: Props): JSX.Element => {
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let af: number | undefined;
@@ -32,17 +32,17 @@ const MainBase = ({ className, children }: Props): JSX.Element => {
   }, []);
 
   return (
-    <main ref={ref} className={className}>
+    <div ref={ref} className={className}>
       {children}
-    </main>
+    </div>
   );
 };
 
-const Main = styled(MainBase)`
+const Page = styled(PageBase)`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
 `;
 
-export { Main };
+export { Page };

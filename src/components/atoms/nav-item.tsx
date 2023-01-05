@@ -19,7 +19,7 @@ const NavItemBase = ({ className, children, href, newTab = false }: Props): JSX.
 };
 
 const NavItem = styled(NavItemBase)`
-  color: ${theme.color.white};
+  color: ${theme.navItem.color};
   text-decoration: none;
   display: inline-flex;
   align-items: center;

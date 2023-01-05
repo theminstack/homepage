@@ -14,7 +14,6 @@ const SubTitle = styled(SubTitleBase)`
   box-sizing: border-box;
   flex: 0 1 auto;
   font-size: 2rem;
-  font-weight: bold;
   max-width: 100%;
   padding: 0 2rem;
   text-align: center;

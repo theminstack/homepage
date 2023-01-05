@@ -11,8 +11,8 @@ const GlobalStyle = styled.global`
   line-height: 1.375;
 
   body {
-    color: ${theme.color.white};
-    background-color: ${theme.color.black};
+    color: ${theme.body.color};
+    background-color: ${theme.body.backgroundColor};
     font-family: Arial, Helvetica, sans-serif;
   }
   h1,
