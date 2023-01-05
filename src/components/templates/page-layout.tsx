@@ -1,7 +1,7 @@
 import { styled } from '@minstack/styled';
 import { type ReactNode } from 'react';
 
-import { Page } from '../molecules/page.js';
+import { Page } from './page.js';
 
 type Props = {
   className?: string;
