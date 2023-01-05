@@ -11,7 +11,7 @@ type Cache<TValue extends {}> = {
 };
 
 const useCache = <TValue extends {}>(key: {}): Cache<TValue> => {
-  const keyString = JSON.stringify(key);
+  const keyString = `cache-key:${JSON.stringify(key)}`;
   const cache: Cache<TValue> = useMemo<Cache<TValue>>(() => {
     return {
       get: () => {
@@ -23,7 +23,7 @@ const useCache = <TValue extends {}>(key: {}): Cache<TValue> => {
         const entry: Entry<TValue> = { expiration: Date.now() + lifetime, value };
         const json = JSON.stringify(entry);
         window.localStorage.setItem(keyString, json);
-        return JSON.parse(json);
+        return (JSON.parse(json) as Entry<TValue>).value;
       },
     };
   }, [keyString]);
