@@ -1,5 +1,7 @@
 import { styled } from '@minstack/styled';
-import { type ReactNode, useEffect, useRef } from 'react';
+import { type ReactNode } from 'react';
+
+import { useViewportHeight } from '../hooks/use-viewport-height.js';
 
 type Props = {
   readonly children?: ReactNode;
@@ -7,32 +9,10 @@ type Props = {
 };
 
 const PageBase = ({ className, children }: Props): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let af: number | undefined;
-
-    const update = () => {
-      if (af != null) return;
-
-      af = requestAnimationFrame(() => {
-        af = undefined;
-        if (!ref.current) return;
-        ref.current.style.minHeight = window.innerHeight + 'px';
-      });
-    };
-
-    update();
-    window.addEventListener('resize', update);
-
-    return () => {
-      window.removeEventListener('resize', update);
-      af && cancelAnimationFrame(af);
-    };
-  }, []);
+  const viewportHeight = useViewportHeight();
 
   return (
-    <div ref={ref} className={className}>
+    <div className={className} style={{ minHeight: viewportHeight + 'px' }}>
       {children}
     </div>
   );

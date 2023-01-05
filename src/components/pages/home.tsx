@@ -11,13 +11,13 @@ import {
 import { Hero } from '../atoms/hero.js';
 import { NavItem } from '../atoms/nav-item.js';
 import { NoWrap } from '../atoms/no-wrap.js';
-import { Repo } from '../atoms/repo.js';
 import { RepoList } from '../atoms/repo-list.js';
 import { SubTitle } from '../atoms/sub-title.js';
 import { Title } from '../atoms/title.js';
-import { Footer } from '../molecules/footer.js';
-import { NavBar } from '../molecules/nav-bar.js';
-import { Section } from '../molecules/section.js';
+import { Repo } from '../molecules/repo.js';
+import { Footer } from '../organisms/footer.js';
+import { NavBar } from '../organisms/nav-bar.js';
+import { Section } from '../organisms/section.js';
 import { PageLayout } from '../templates/page-layout.js';
 
 const Home = (): JSX.Element => {

@@ -41,6 +41,7 @@
     "vite-plugin-full-reload": "^1.0.4"
   },
   "dependencies": {
+    "@minstack/query": "^1.0.1",
     "@minstack/styled": "^1.0.2",
     "@tabler/icons-react": "^2.0.0-alpha",
     "color": "^4.2.3",

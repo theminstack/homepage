@@ -17,6 +17,7 @@ export const theme = {
     color: 'hsl(225deg 20% 90%)',
     headerColor: 'hsl(210deg 100% 75%)',
     shadowColor: 'hsl(210deg 100% 75%)',
+    statsColor: 'hsl(225deg 20% 50%)',
   },
   title: {
     backgroundColor0: 'hsl(210deg 100% 75%)',
