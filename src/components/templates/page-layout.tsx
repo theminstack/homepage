@@ -24,6 +24,10 @@ const PageLayoutBase = ({ className, nav, header, main, footer }: Props) => {
 const PageLayout = styled(PageLayoutBase)`
   gap: 8rem;
 
+  @media screen and (max-width: 43rem) {
+    gap: 4rem;
+  }
+
   & > main {
     display: flex;
     flex-direction: column;
