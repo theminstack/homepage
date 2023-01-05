@@ -11,7 +11,7 @@ type Repo = {
 const useGitHubRepo = (owner: string, repo: string): QueryResult<Repo> => {
   const url = `https://api.github.com/repos/${owner}/${repo}`;
   const repoCache = useCache<Repo>(url);
-  const repoResult = useQuery([url], async () => {
+  const repoResult = useQuery([url], async (): Promise<Repo> => {
     const cached = repoCache.get();
 
     if (cached) {
@@ -21,10 +21,10 @@ const useGitHubRepo = (owner: string, repo: string): QueryResult<Repo> => {
     const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
 
     if (!res.ok) {
-      throw new Error(`Failed gettin21,600,000g repo (status: ${res.status}, owner: ${owner}, repo: ${repo})`);
+      throw new Error(`Failed getting repo (status: ${res.status}, owner: ${owner}, repo: ${repo})`);
     }
 
-    return repoCache.set((await res.json()) as Repo, 21_600_000 /* 6 hours */);
+    return repoCache.set(await res.json(), 21_600_000 /* 6 hours */);
   });
 
   return repoResult;
