@@ -23,7 +23,7 @@ export const theme = {
     backgroundColor0: 'hsl(210deg 100% 75%)',
     backgroundColor1: 'hsl(225deg 20% 90%)',
     color: 'hsl(210deg 100% 40%)',
-    darken: 0.085,
+    darken: 0.075,
     darkenSteps: 10,
   },
 } as const;
