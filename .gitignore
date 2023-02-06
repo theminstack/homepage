@@ -11,3 +11,6 @@ dist
 *.gz
 *.tgz
 *.zip
+
+# Local Netlify folder
+.netlify
